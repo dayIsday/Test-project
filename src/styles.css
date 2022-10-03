@@ -1,0 +1,369 @@
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+@font-face {
+  font-family: NoirPro;
+  src: url("./fonts/NoirPro-BoldItalic.ttf");
+  font-weight: 700;
+  font-style: italic;
+}
+@font-face {
+  font-family: NoirPro;
+  src: url("./fonts/NoirPro-Light.ttf");
+  font-weight: 100;
+  font-style: normal;
+}
+body {
+  font-family: NoirPro, sans-serif;
+  font-weight: 100;
+  font-style: normal;
+}
+
+.header__logo {
+  background-image: url("./icons/logo.svg");
+  width: 60px;
+  height: 60px;
+  position: fixed;
+  top: 53px;
+  right: 64px;
+  z-index: 10;
+}
+.header__hr {
+  background-image: url("./icons/hr.svg");
+  background-repeat: no-repeat;
+  background-size: contain;
+  height: 10px;
+  border: none;
+  width: 100vw;
+  position: fixed;
+  top: 187px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 10;
+}
+
+.swiper-slide {
+  padding: 15px 64px 27px;
+}
+.swiper-slide__title {
+  font-family: NoirPro, sans-serif;
+  font-weight: bold;
+  font-style: italic;
+  font-size: 132px;
+  line-height: 1.2;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.swiper-slide__description {
+  color: #999999;
+  margin-left: 8px;
+  margin-top: 54px;
+  font-size: 20px;
+  line-height: 27px;
+  max-width: 500px;
+  z-index: 5;
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.arrowButton {
+  background-color: transparent;
+  background-repeat: no-repeat;
+  background-image: url("./icons/arrow.svg");
+  background-position: right 0;
+  user-select: none;
+  border: none;
+  width: 151px;
+  height: 30px;
+  position: fixed;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
+}
+.arrowButton__left {
+  transform: rotate(180deg);
+  left: 64px;
+}
+.arrowButton__right {
+  right: 64px;
+}
+.arrowButton__disabled {
+  pointer-events: none;
+  opacity: 0;
+}
+.arrowButton:hover {
+  cursor: pointer;
+  background-image: url("./icons/arrow-hover.svg");
+}
+
+.swiper {
+  width: 100vw;
+  height: 100vh;
+}
+
+.swiper-wrapper {
+  width: 100vw;
+  height: 100vh;
+  flex-shrink: 0;
+}
+
+.swiper-slide {
+  width: 100vw;
+  height: 100vh;
+  background-image: url("https://test.grechka.digital/html/image-1.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+.like {
+  position: absolute;
+  bottom: 27px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 13px;
+}
+.like--disabled {
+  pointer-events: none;
+  opacity: 0.3;
+}
+.like__iconWrapper {
+  width: 72px;
+  height: 72px;
+  background: #99999933;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.like__iconWrapper:hover {
+  cursor: pointer;
+  background: #F36A1D;
+}
+.like__text {
+  font-size: 32px;
+  color: #999999;
+  font-family: NoirPro, sans-serif;
+  font-weight: 700;
+  font-style: italic;
+}
+.like__text--primary {
+  color: #F36A1D;
+}
+
+.social {
+  position: fixed;
+  z-index: 10;
+  right: 64px;
+  bottom: 40px;
+  display: flex;
+  gap: 15px;
+}
+.social__icon {
+  width: 40px;
+  height: 40px;
+  fill: #727272;
+}
+.social__icon:hover {
+  fill: #F36A1D;
+}
+
+.modal {
+  position: fixed;
+  max-width: 450px;
+  min-width: 300px;
+  max-height: 90vh;
+  overflow: auto;
+  left: 50%;
+  bottom: -100vh;
+  transform: translate(-50%, 50%);
+  background: #393939;
+  transition: 0.5s ease-in-out;
+  padding: 16px;
+  font-size: 20px;
+  z-index: 12;
+}
+.modal--opened {
+  bottom: 50%;
+}
+.modal__title {
+  color: #999999;
+  font-weight: bold;
+  font-style: italic;
+}
+.modal__desc {
+  margin-top: 15px;
+  color: #FFFFFF;
+}
+.modal__close {
+  width: 24px;
+  height: 24px;
+  stroke: #F36A1D;
+  position: absolute;
+  z-index: 83457;
+  top: 16px;
+  right: 16px;
+  transition: 0.18s;
+}
+.modal__close:hover {
+  stroke: white;
+  cursor: pointer;
+}
+
+.overlay {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  background: #000;
+  z-index: 11;
+  opacity: 0;
+  pointer-events: none;
+  transition: 0.25s ease-in-out;
+}
+.overlay--opened {
+  opacity: 0.3;
+  pointer-events: auto;
+}
+
+.dummy {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  background: #CFCFCF;
+  z-index: 20;
+  pointer-events: none;
+  opacity: 0;
+  transition: 0.5s;
+}
+.dummy--opened {
+  pointer-events: auto;
+  opacity: 1;
+}
+.dummy__title {
+  font-size: 90px;
+  font-weight: bold;
+  font-style: italic;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  text-align: center;
+  width: 100%;
+  color: #727272;
+}
+.dummy__loading {
+  width: 60px;
+  height: 60px;
+  fill: red;
+  stroke: red;
+}
+.dummy__dot {
+  animation: dot-loading 0.8s infinite;
+}
+.dummy__dot:nth-child(2) {
+  animation-delay: 0s;
+}
+.dummy__dot:nth-child(3) {
+  animation-delay: 0.15s;
+}
+.dummy__dot:nth-child(4) {
+  animation-delay: 0.3s;
+}
+
+@media (max-width: 1024px) {
+  .header__logo {
+    top: 32px;
+    right: 32px;
+  }
+  .header__hr {
+    top: 120px;
+  }
+
+  .swiper-slide__title {
+    font-size: 72px;
+  }
+
+  .arrowButton__left {
+    left: 32px;
+  }
+  .arrowButton__right {
+    right: 32px;
+  }
+
+  .social {
+    flex-direction: column;
+    right: 32px;
+  }
+
+  .dummy__title {
+    font-size: 60px;
+  }
+}
+@media (max-width: 600px) {
+  .header__logo {
+    top: 17px;
+    right: 16px;
+  }
+  .header__hr {
+    top: 90px;
+  }
+
+  .swiper-slide {
+    padding: 29px 16px 13px;
+    background-position: 20% center;
+  }
+  .swiper-slide__title {
+    font-size: 32px;
+  }
+
+  .arrowButton__left, .arrowButton__right {
+    width: 58px;
+  }
+  .arrowButton__left {
+    left: 16px;
+  }
+  .arrowButton__right {
+    right: 16px;
+  }
+
+  .modal {
+    width: 100vw;
+    height: 100vh;
+    min-width: auto;
+    max-width: 100vw;
+    min-height: 100vh;
+  }
+
+  .social {
+    right: 11px;
+  }
+
+  .dummy__title {
+    font-size: 32px;
+  }
+}
+@keyframes dot-loading {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+/*# sourceMappingURL=styles.css.map */
